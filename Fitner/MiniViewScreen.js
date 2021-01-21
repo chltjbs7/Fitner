@@ -63,6 +63,32 @@ export default function App() {
         <Text style={styles.VideoInfo}>조회수 1.5만회 · 5개월 전</Text>
       </View>
       </View>
+
+      <View style={styles.box}>
+      <TouchableOpacity style={styles.Thumbnail_01} >
+        <Image
+          style={styles.Thumbnail}
+          source={require('./assets/thumbnail.png')}
+        />
+      </TouchableOpacity>
+      <View>
+        <Text style={styles.VideoName}>[체지방킬러:고독한 유산소 운동] 층간소음 걱정 1도 없는 ...</Text>
+        <Text style={styles.VideoInfo}>조회수 1.5만회 · 5개월 전</Text>
+      </View>
+      </View>
+
+      <View style={styles.box}>
+      <TouchableOpacity style={styles.Thumbnail_01} >
+        <Image
+          style={styles.Thumbnail}
+          source={require('./assets/thumbnail.png')}
+        />
+      </TouchableOpacity>
+      <View>
+        <Text style={styles.VideoName}>[체지방킬러:고독한 유산소 운동] 층간소음 걱정 1도 없는 ...</Text>
+        <Text style={styles.VideoInfo}>조회수 1.5만회 · 5개월 전</Text>
+      </View>
+      </View>
       
     </ScrollView>    
   );
@@ -73,7 +99,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginLeft: 16,
     marginRight: 16,
-    marginTop: 19,
+    marginBottom: 19,
   },
   Thumbnail:{
     width: 165,

@@ -1,27 +1,57 @@
-import * as React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet,
+    View,
+    Text,
+    Image,
+    TouchableOpacity,
+    ScrollView,} from 'react-native';
 
-import { AntDesign } from '@expo/vector-icons';
-
-import ViewScreen from './ViewScreen';
+import { FontAwesome, } from '@expo/vector-icons';
 
 export default function App() {
-  return (
+  return (  
     <View style={styles.container}>
       <View style={styles.Top}>
-        <TouchableOpacity>
-          <AntDesign name="arrowleft" size={24} style={styles.icon} />
-        </TouchableOpacity>
-        <Text style={styles.title}>전신</Text>
+        <Text style={styles.title}>오늘은 어떤 운동을 해볼까요?</Text>
+        <Text style={styles.btitle}>Fitner 운동목록</Text>
       </View>
-      <View style={styles.verticleLine}></View>
       <View style={styles.Mid}>
-        <ViewScreen />
+        <View style={styles.box}>
+          <TouchableOpacity style={styles.list}>
+            <Text style={styles.name}>전신</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.list}>
+          <Text style={styles.name}>목</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.list}>
+            <Text style={styles.name}>어깨</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.box}>
+          <TouchableOpacity style={styles.list}>
+            <Text style={styles.name}>팔</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.list}>
+           <Text style={styles.name}>가슴</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.list}>
+           <Text style={styles.name}>복근</Text>
+          </TouchableOpacity>
+        </View> 
+        <View style={styles.box}>
+          <TouchableOpacity style={styles.list}>
+            <Text style={styles.name}>엉덩이</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.list}>
+           <Text style={styles.name}>허벅지</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.list}>
+           <Text style={styles.name}>다리</Text>
+          </TouchableOpacity>
+        </View> 
       </View>
     </View>
   );
@@ -34,27 +64,51 @@ const styles = StyleSheet.create({
   },
   Top: {
     flex: 1,
-    backgroundColor: '#ffffff',
-    flexDirection: "row",
+    backgroundColor: '#6c5ce7',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   Mid: {
-    flex: 7,
-    backgroundColor: '#ffffff',
-    
-  },
-  icon: {
-    marginTop: 45,
-    marginLeft: 16,
-  },
-  verticleLine:{
-    height: 1,
-    width: '100%',
-    backgroundColor: '#E8E8E8',
+    flex: 4,
+    marginTop: 50,
   },
   title: {
-    fontSize: 20,
+    fontSize: 16,
+    fontWeight: "600",
     fontStyle: "normal",
-    marginTop: 45,
-    marginLeft: 155,
+    color: 'white',
+  },
+  btitle: {
+    fontWeight: "600",
+    fontSize: 22,
+    color: 'white',
+  },
+  list: {
+    width: 105,
+    height: 105,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#6c5ce7',
+    backgroundColor: '#ffffff',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.16,
+  },
+  box: {
+    margin: 30,
+    marginTop: 20,
+    marginBottom: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  name: {
+    fontSize: 18,
+    fontStyle: "normal",
+    textAlign: "center",
+    marginTop: 40,
   }
+  
 });

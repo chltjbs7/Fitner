@@ -8,7 +8,7 @@ import {
 
 import { AntDesign } from '@expo/vector-icons';
 
-import MiniViewScreen from './MiniViewScreen';
+import ViewScreen from './ViewScreen';
 
 export default function App() {
   return (
@@ -17,13 +17,11 @@ export default function App() {
         <TouchableOpacity>
           <AntDesign name="arrowleft" size={24} style={styles.icon} />
         </TouchableOpacity>
-        <Text style={styles.title}>시청기록</Text>
+        <Text style={styles.title}>전신</Text>
       </View>
       <View style={styles.verticleLine}></View>
-
       <View style={styles.Mid}>
-        <Text style={styles.ViewTime}>어제</Text>
-        <MiniViewScreen />
+        <ViewScreen />
       </View>
     </View>
   );
@@ -45,9 +43,8 @@ const styles = StyleSheet.create({
     
   },
   icon: {
-    marginTop: 42,
+    marginTop: 45,
     marginLeft: 16,
-    marginRight: 16,
   },
   verticleLine:{
     height: 1,
@@ -58,13 +55,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontStyle: "normal",
     marginTop: 45,
-    color: '#6c5ce7',
-    fontWeight: 'bold'
-  },
-  ViewTime: {
-    fontSize: 16,
-    fontStyle: "normal",
-    margin: 16,
-    color: '#8a8a8a',
+    marginLeft: 155,
   }
 });
