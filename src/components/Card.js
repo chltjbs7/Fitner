@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons'
+import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 const Card = (props)=>{
@@ -16,11 +16,11 @@ const Card = (props)=>{
             />
             <View style={{
                 flexDirection: "row",
-                margin: 8,
+                margin: 4,
                 marginLeft: 24
             }}>
                 <MaterialIcons name="account-circle" size={40} color="#6c5ce7" />
-                <View style={{ marginLeft: 10 }}>
+                <View style={{ marginLeft: 6 }}>
                     <Text style={styles.title}
                         ellipsizeMode="tail"
                         numberOfLines={2}

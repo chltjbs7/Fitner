@@ -58,7 +58,7 @@ const SearchScreen = ({navigation})=>{
                 onChangeText={(text)=>setValue(text)}
                 />
                 <FontAwesome name="search" size={24}
-                style={{marginTop: 14}}
+                style={{marginTop: 12, marginRight: 5}}
                 onPress={()=>fetchData()}
                 />
             </View>

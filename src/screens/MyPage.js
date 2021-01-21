@@ -24,14 +24,14 @@ const MyPage = ({navigation})=>{
           <TouchableOpacity>
             <Text style={styles.text}>재생 목록</Text>
           </TouchableOpacity>
-          <Text style={styles.line}>___________________________________________________________</Text>
+          <View style={{borderBottomWidth:1, borderColor: '#e8e8e8', marginTop: 12}} />
         </View>
         <View>
           <Text style={styles.title}>환경설정</Text>
           <TouchableOpacity>
             <Text style={styles.text}>알림설정</Text>
           </TouchableOpacity>
-          <Text style={styles.line}>___________________________________________________________</Text>
+          <View style={{borderBottomWidth:1, borderColor: '#e8e8e8', marginTop: 12}} />
         </View>
         <View>
           <Text style={styles.title}>고객지원</Text>
@@ -41,7 +41,7 @@ const MyPage = ({navigation})=>{
           <TouchableOpacity>
             <Text style={styles.text}>탈퇴하기</Text>
           </TouchableOpacity>
-          <Text style={styles.line}>___________________________________________________________</Text>
+          <View style={{borderBottomWidth:1, borderColor: '#e8e8e8', marginTop: 12}} />
         </View>
         <View>
           <Text style={styles.title}>앱 정보</Text>
@@ -111,8 +111,5 @@ const styles = StyleSheet.create({
       color: 'black',
       marginTop: 12,
       marginLeft: 23,
-    },
-    line: {
-      color: '#e8e8e8',
     },
   });
