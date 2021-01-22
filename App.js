@@ -57,17 +57,19 @@ const RootHome = ()=>{
   )
 }
 
-export default function App() {
-  return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator headerMode="none">
-          <Stack.Screen name="rootHome" component={RootHome} />
-          <Stack.Screen name="search" component={Search} />
-          <Stack.Screen name="subscriedyoutuber" component={SubscriedYoutuber} />
-          <Stack.Screen name="videoplayer" component={VideoPlayer} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Provider>
-  );
+export default class App extends React.Component {
+  render(){
+    return (
+      <Provider store={store}>
+        <NavigationContainer>
+          <Stack.Navigator headerMode="none">
+            <Stack.Screen name="rootHome" component={RootHome} />
+            <Stack.Screen name="search" component={Search} />
+            <Stack.Screen name="subscriedyoutuber" component={SubscriedYoutuber} />
+            <Stack.Screen name="videoplayer" component={VideoPlayer} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
+    );
+  }
 }
