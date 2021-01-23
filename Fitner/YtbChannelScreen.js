@@ -36,7 +36,7 @@ export default function App() {
           <Text style={styles.ytbInfo}>구독자 265만명</Text>
         </View>
         <TouchableOpacity style={styles.Button}>
-          <Text style={styles.ButtonNmae}>구독</Text>
+          <Text style={styles.ButtonName}>구독</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginLeft: 90,
   },
-  ButtonNmae: {
+  ButtonName: {
     fontSize: 16,
     fontStyle: "normal",
     color: '#ffffff',
