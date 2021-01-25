@@ -1,9 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, } from 'react-native';
 
-import { AntDesign } from '@expo/vector-icons';
-
-const List = ()=>{
+const List = ({navigation})=>{
     return (
         <View style={styles.container}>
         <View style={styles.Top}>
@@ -12,7 +10,7 @@ const List = ()=>{
         </View>
         <View style={styles.Mid}>
           <View style={styles.box}>
-            <TouchableOpacity style={styles.list}>
+            <TouchableOpacity style={styles.list} onPress={()=>navigation.navigate("wholebody")}>
               <Text style={styles.name}>전신</Text>
             </TouchableOpacity>
   

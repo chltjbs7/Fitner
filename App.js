@@ -6,16 +6,18 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { MaterialIcons } from '@expo/vector-icons';
 
-import Constant from 'expo-constants';
 import Home from './src/screens/Home';
-import Search from './src/screens/Search';
-import VideoPlayer from './src/screens/VideoPlayer';
 import List from './src/screens/List';
 import Chart from './src/screens/Chart';
 import MyPage from './src/screens/MyPage';
-import SubscriedYoutuber from './src/screens/SubscribedYouTuber';
-import { reducer } from './src/reducers/reducer';
 
+import Search from './src/screens/Search';
+import VideoPlayer from './src/screens/VideoPlayer';
+import SubscriedYoutuber from './src/screens/SubscribedYouTuber';
+
+import WholeBody from './src/List/WholeBody';
+
+import { reducer } from './src/reducers/reducer';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
@@ -63,9 +65,13 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator headerMode="none">
           <Stack.Screen name="rootHome" component={RootHome} />
+
           <Stack.Screen name="search" component={Search} />
-          <Stack.Screen name="subscriedyoutuber" component={SubscriedYoutuber} />
           <Stack.Screen name="videoplayer" component={VideoPlayer} />
+
+          <Stack.Screen name="wholebody" component={WholeBody} />
+
+          <Stack.Screen name="subscriedyoutuber" component={SubscriedYoutuber} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

@@ -14,7 +14,7 @@ export default function SubscribedYouTuber({navigation}) {
             />
             <Text style={styles.title}>구독한 유튜버</Text>
         </View>
-        <Text style={styles.line}>___________________________________________________________</Text>
+        <View style={{borderBottomWidth:1, borderColor: '#e8e8e8'}} />
         <View style={{ flexDirection: "row" }}>
             <TouchableOpacity style={styles.profile}/>
             <Text style={styles.ID}>abc123님</Text>
@@ -47,9 +47,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 12,
     marginLeft: 25,
-  },
-  line: {
-    color: '#e8e8e8',
   },
   ID: {
     fontSize: 14,

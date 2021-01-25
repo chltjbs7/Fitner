@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Constant from 'expo-constants';
 import MiniCard from '../components/MiniCard';
 
-//https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=7&q=%ED%99%88%ED%8A%B8%EB%A0%88%EC%9D%B4%EB%8B%9D&type=video&key=AIzaSyBDIjxJlQjWI3hDfyeE8vlgeXvmUVhI9b0
+//https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=%${value}&type=video&key=AIzaSyD7G6L3-J7NFI_IvYWf4GJ3zOfhaAFi7PI
 
 const SearchScreen = ({navigation})=>{
         const [value,setValue] = useState("")
@@ -18,7 +18,7 @@ const SearchScreen = ({navigation})=>{
         const [loading, setLoading] = useState(false)
         const fetchData = () => {
             setLoading(true)
-            fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${value}&type=video&key=AIzaSyBDIjxJlQjWI3hDfyeE8vlgeXvmUVhI9b0`)
+            fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=%${value}&type=video&key=AIzaSyD7G6L3-J7NFI_IvYWf4GJ3zOfhaAFi7PI`)
             .then(res=>res.json())
             .then(data=>{
                 setLoading(false)
