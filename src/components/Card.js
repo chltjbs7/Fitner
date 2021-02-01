@@ -7,7 +7,10 @@ const Card = (props)=>{
     const navigation = useNavigation();
     return(
         <TouchableOpacity
-        onPress={()=>navigation.navigate("videoplayer", {videoId: props.videoId, title: props.title})}
+        onPress={()=>navigation.navigate('videoplayer',{
+            videoId: props.videoId,
+            title: props.title}
+        )}
         >
         <View style={{marginBottom: 10}}>
             <Image
