@@ -6,7 +6,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import {navigation} from '@react-navigation/native'
 import { useState } from 'react';
-
+import CameraInput from '../components/CameraInput';
 
 
 function VideoPlayer ({route}){
@@ -33,8 +33,9 @@ function VideoPlayer ({route}){
             )
             
         }else{
+            //카메라
             return(
-                <Text>Camera_space</Text>
+                <CameraInput />
             )
         }
     }
@@ -59,56 +60,9 @@ function VideoPlayer ({route}){
         </View>
 )
 }
-/*
-const VideoPlayer=({route})=>{
-    const {videoId,title,} = route.params
-    const [setView] = useState(0);
-    //const videoId= route.params.videoId
-    //const title=route.params.title
-        //const {navigation}=this.props.navigation;
-        //const videoId=navigation.getParam.videoId
-        //const title=navigation.getParam.title
-        return(
-            <View style={{
-                flex:1,
-                marginTop:Constant.statusBarHeight
-                }}>
-                <View style={{
-                    width:"100%",
-                    height:220
-                }}>
-                    <WebView
-                        useWebKit={true}
-                        javaScriptEnabled={true}
-                        domStorageEnabled={true}
-                        allowsInlineMediaPlayback={true}
-                        source={{uri:`https://www.youtube.com/embed/${videoId}?playsinline=1`}}
-                    />
-                </View>
 
-                if (this.state.showView()) {
-                        <View>
-                            <Text style={styles.VideoName}
-                            numberOfLines={2}
-                            ellipsizeMode="tail"
-                            >{title}</Text>
 
-                            <View style={styles.container}>
-                                <TouchableOpacity style={styles.Button}>
-                                    <Text style={styles.ButtonName}>재생목록에 추가</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.Button} onPress={() => removeView()}>
-                                    <Text style={styles.ButtonName}>스마트운동 시작</Text>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                }
-    
-                <View style={{borderBottomWidth:1, borderColor: '#E8E8E8', marginTop: 5, }} />
-            </View>
-        )
-    }
-*/
+
 export default VideoPlayer
 
 const styles = StyleSheet.create({
