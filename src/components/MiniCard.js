@@ -10,7 +10,7 @@ const MiniCard = (props)=> {
         <TouchableOpacity
         onPress={()=>navigation.navigate("videoplayer", {videoId: props.videoId, title: props.title})}
         >
-        <View style={{margin:10,marginBottom:0}}>
+        <View style={{backgroundColor: "white", margin:10, marginBottom:0}}>
         <Image 
            source={{uri:`https://i.ytimg.com/vi/${props.videoId}/hqdefault.jpg`}}
            style={{
@@ -29,7 +29,7 @@ const MiniCard = (props)=> {
                         ellipsizeMode="tail"
                         numberOfLines={2}
                     >{props.title}</Text>
-                    <Text style={styles.channel}>{props.channel}</Text>
+                    <Text style={styles.channel}>{props.channel} · {props.time}</Text>
                 </View>
             </View>
         </View>

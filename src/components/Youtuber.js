@@ -1,16 +1,9 @@
-import * as React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  ScrollView,
- } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView, } from 'react-native';
 
-import { MaterialIcons, } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
-export default function Youtuber() {
+const Youtuber = ({navigation})=>{
   return (
     <ScrollView
       horizontal={true}
@@ -21,20 +14,24 @@ export default function Youtuber() {
     >
       <View>
           <TouchableOpacity style={styles.btnPlus}>
-            <Text style={styles.text}>◀</Text>
+            <FontAwesome name="angle-left" size={20} color="#9b90ee" style={styles.text} />
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.btnYoutuber_01}>
-          <MaterialIcons name="account-circle" size={60} color="#6c5ce7" style={styles.profile}/>
+            <MaterialIcons name="account-circle" size={60} color="#6c5ce7" style={styles.profile}/>
             <Text style={styles.textYouYuber}>땅끄부부</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.btnYoutuber_02}>
             <MaterialIcons name="account-circle" size={60} color="#6c5ce7" style={styles.profile}/>
             <Text style={styles.textYouYuber}>힙으뜸</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.btnYoutuber_03}>
             <MaterialIcons name="account-circle" size={60} color="#6c5ce7" style={styles.profile}/>
             <Text style={styles.textYouYuber}>발레테라핏</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.btnYoutuber_04}>
             <MaterialIcons name="account-circle" size={60} color="#6c5ce7" style={styles.profile}/>
             <Text style={styles.textYouYuber}>피지컬 갤러리</Text>
@@ -43,6 +40,8 @@ export default function Youtuber() {
     </ScrollView>
   );
 }
+
+export default Youtuber
 
 const styles = StyleSheet.create({
   btnPlus: {
@@ -55,8 +54,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontSize: 20,
-    color: '#9b90ee',
     textAlign: 'center',
     fontWeight: "bold",
   },

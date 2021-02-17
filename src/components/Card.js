@@ -9,23 +9,23 @@ const Card = (props)=>{
         <TouchableOpacity
         onPress={()=>navigation.navigate("videoplayer", {videoId: props.videoId, title: props.title})}
         >
-        <View style={{marginBottom: 10}}>
+        <View style={{backgroundColor: "white", marginBottom: 10}}>
             <Image
             source={{uri: `https://i.ytimg.com/vi/${props.videoId}/hqdefault.jpg`}}
             style={styles.thumbnail}
             />
             <View style={{
                 flexDirection: "row",
-                margin: 4,
+                margin: 8,
                 marginLeft: 24
             }}>
                 <MaterialIcons name="account-circle" size={40} color="#6c5ce7" />
-                <View style={{ marginLeft: 6 }}>
+                <View style={{ marginLeft: 10 }}>
                     <Text style={styles.title}
                         ellipsizeMode="tail"
                         numberOfLines={2}
                     >{props.title}</Text>
-                    <Text style={styles.channel}>{props.channel}</Text>
+                    <Text style={styles.channel}>{props.channel} · {props.time}</Text>
                 </View>
             </View>
         </View>
