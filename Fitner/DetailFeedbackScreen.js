@@ -38,8 +38,8 @@ export default function App() {
       <Text style={styles.text_01}>가장 낮은 유사도 결과</Text>
 
       <View style={styles.box}>
-        <TouchableOpacity style={styles.mImage01}></TouchableOpacity>
-        <TouchableOpacity style={styles.mImage02}></TouchableOpacity>
+        <View style={styles.mImage01}></View>
+        <View style={styles.mImage02}></View>
       </View>
 
       <Text style={styles.text_02}>영상의 8분 12초에서 ~ 17초 사이의</Text>
