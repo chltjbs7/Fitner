@@ -14,7 +14,7 @@ return (
             style={{marginTop: 55, marginLeft: 16,}}
             onPress={()=>navigation.goBack()}
             />
-            <Text style={styles.title}>복근 운동</Text>
+            <Text style={styles.title}>허벅지 운동</Text>
         </View>
         <View style={{borderBottomWidth:1, borderColor: '#e8e8e8', marginTop: 20}} />
     </View>        
@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontStyle: "normal",
         marginTop: 55,
-        marginLeft: 140,
+        marginLeft: 123,
     },
   });

@@ -33,9 +33,9 @@ import Hip from './src/List/Hip';
 import Thigh from './src/List/Thigh';
 import Leg from './src/List/Leg';
 
-import Day from './src/components/Day';
-import Week from './src/components/Week';
-import Month from './src/components/Month';
+import Day from './src/Chart/Day';
+import Week from './src/Chart/Week';
+import Month from './src/Chart/Month';
 
 import YtbChannelScreen from './src/screens/YtbChannelScreen';
 import ViewedVideoScreen from './src/MyPage/ViewedVideoScreen';
@@ -50,9 +50,7 @@ const LogInScreen = ({navigation})=>{
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: "rgba(232, 232, 232, 0.3)" }}>
       <Login />
-      <TouchableOpacity style={styles.btnLogin} underlayColor="#6c5ce7"
-      onPress={() => navigation.navigate('rootHome')}
-      >
+      <TouchableOpacity style={styles.btnLogin} underlayColor="#6c5ce7" onPress={() => navigation.navigate('rootHome')} >
         <Text style={styles.text}>Log in</Text>
       </TouchableOpacity>
       <View style={styles.textContainer}>
@@ -132,8 +130,8 @@ function ListScreen({navigation}) {
 
 function ChartScreen() {
   return (
-    <View style={{ flex: 0.4, backgroundColor: '#ffffff' }}>
-      <View style={{ flex: 1, backgroundColor: '#6c5ce7', justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
+      <View style={{ flex: 0.25 , backgroundColor: '#6c5ce7', justifyContent: 'center', alignItems: 'center' }}>
           <Text style={{ fontSize: 16, fontWeight: "600", fontStyle: "normal", color: 'white', marginTop: 73 }}>Fitner에서의 꾸준한 기록</Text>
           <Text style={{ fontWeight: "600", fontSize: 22, color: 'white', marginTop: 10, marginBottom: 10 }}>나의 운동데이터</Text>
       </View>
@@ -163,6 +161,7 @@ function monthScreen() {
 function ChartTabs() {
   return (
     <Tab.Navigator
+      initialRouteName="Day"
       tabBarOptions={{
         activeTintColor: '#9b90ee',
         inactiveTintColor: '#aaaaaa',
@@ -173,9 +172,9 @@ function ChartTabs() {
         indicatorStyle: { backgroundColor: '#9b90ee' },
       }}
     >
-      <Tab.Screen name="일" component={dayScreen} options={{ tabBarLabel: '일' }} />
-      <Tab.Screen name="주" component={weekScreen} options={{ tabBarLabel: '주' }} />
-      <Tab.Screen name="월" component={monthScreen} options={{ tabBarLabel: '월' }} />
+      <Tab.Screen name="Day" component={dayScreen} options={{ tabBarLabel: '일' }} />
+      <Tab.Screen name="Week" component={weekScreen} options={{ tabBarLabel: '주' }} />
+      <Tab.Screen name="Month" component={monthScreen} options={{ tabBarLabel: '월' }} />
     </Tab.Navigator>
   );
 }

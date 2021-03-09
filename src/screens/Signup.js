@@ -23,6 +23,7 @@ export default function Signup({navigation}) {
                 <TextInput style={styles.input}
                 placeholder={'실명을 입력해주세요.'}
                 placeholderTextColor='#9f9f9f'
+                returnKeyType="done"
                 />
             <View style={styles.Inputverticle}></View>
             </View>
@@ -45,7 +46,7 @@ export default function Signup({navigation}) {
             <Text style={styles.title}>비밀번호</Text>
                 <TextInput style={styles.input}
                 placeholder={'영문, 숫자, 특수문자 조합 6-15자 이내'}
-                placeholderTextColor='#9f9f9f'   
+                placeholderTextColor='#9f9f9f'
                 />
             <View style={styles.Inputverticle}></View>
             </View>
@@ -55,6 +56,7 @@ export default function Signup({navigation}) {
                 <TextInput style={styles.input}
                 placeholder={'영문, 숫자, 특수문자 조합 6-15자 이내'}
                 placeholderTextColor='#9f9f9f'
+                blurOnSubmit={true}
                 />
             <View style={styles.Inputverticle}></View>
             </View>

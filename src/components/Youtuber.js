@@ -1,5 +1,6 @@
-import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView, } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView, TextInput, FlatList, ActivityIndicator } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
@@ -116,4 +117,4 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginLeft: 13,
   },
-});
+})

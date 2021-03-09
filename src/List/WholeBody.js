@@ -3,11 +3,10 @@ import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-//%EC%A0%84%EC%8B%A0%EC%9A%B4%EB%8F%99
+//%EC%A0%84%EC%8B%A0%20%EC%9A%B4%EB%8F%99
 
 const WholeBody = (props)=>{
     const navigation = useNavigation();
-
     return (
         <View style={{
             flex: 1,
@@ -65,6 +64,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontStyle: "normal",
         marginTop: 55,
-        marginLeft: 140,
+        marginLeft: 133,
     },
   });

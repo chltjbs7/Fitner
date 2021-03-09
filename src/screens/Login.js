@@ -27,7 +27,7 @@ export default class Login extends Component {
 
           <View style={styles.inputConainter}>
             <TextInput
-            style={styles.input}
+              style={styles.input}
               placeholder={'아이디'}
               placeholderTextColor={'#9f9f9f'}
               underlineColorPhone='transpatren'
