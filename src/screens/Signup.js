@@ -1,86 +1,80 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default function Signup({navigation}) {
     return (
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-        <View style={styles.Top}>
-            <AntDesign name="arrowleft" size={24} style={styles.icon} onPress={()=>navigation.goBack()} />
-            <Text style={styles.Screentitle}>회원가입</Text>
-        </View>
-        <View style={{borderBottomWidth:1, borderColor: '#e8e8e8', marginTop: 13}} />
-
-        <KeyboardAwareScrollView>
-        <View style={styles.Mid}>
+          <View style={styles.Top}>
+              <AntDesign name="arrowleft" size={24} style={styles.icon} onPress={()=>navigation.goBack()} />
+              <Text style={styles.Screentitle}>회원가입</Text>
+          </View>
+          <View style={{borderBottomWidth:1, borderColor: '#e8e8e8', marginTop: 13}} />
+          <View style={styles.Mid}>
             <Text style={styles.Infotext1}>Fitner 이용을 위한</Text>
             <Text style={styles.Infotext2}>회원 정보를 입력해주세요.</Text>
-            
             <View>
-            <Text style={styles.title}>이름</Text>
-                <TextInput style={styles.input}
-                placeholder={'실명을 입력해주세요.'}
-                placeholderTextColor='#9f9f9f'
-                returnKeyType="next"
-                clearButtonMode="while-editing"
-                enablesReturnKeyAutomatically={true}
-                />
-            <View style={styles.Inputverticle}></View>
+              <Text style={styles.title}>이름</Text>
+                  <TextInput style={styles.input}
+                  placeholder={'실명을 입력해주세요.'}
+                  placeholderTextColor='#9f9f9f'
+                  returnKeyType="next"
+                  clearButtonMode="while-editing"
+                  enablesReturnKeyAutomatically={true}
+                  />
+              <View style={styles.Inputverticle}></View>
             </View>
-
             <View>
-            <Text style={styles.title}>아이디</Text>
-            <View style={styles.box}>
-                <TextInput style={styles.input}
-                placeholder={'사용하실 아이디를 입력해주세요.'}
-                placeholderTextColor='#9f9f9f'
-                clearButtonMode="while-editing"
-                enablesReturnKeyAutomatically={true}
-                />
-                <TouchableOpacity style={styles.IdButton}>
-                <Text style={styles.IdButtonName}>중복확인</Text>
-                </TouchableOpacity>
+              <Text style={styles.title}>아이디</Text>
+                <View style={styles.box}>
+                    <TextInput style={styles.input}
+                    placeholder={'사용하실 아이디를 입력해주세요.'}
+                    placeholderTextColor='#9f9f9f'
+                    clearButtonMode="while-editing"
+                    enablesReturnKeyAutomatically={true}
+                    autoCapitalize="none"
+                    />
+                    <TouchableOpacity style={styles.IdButton}>
+                    <Text style={styles.IdButtonName}>중복확인</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.Inputverticle}></View>
             </View>
-            <View style={styles.Inputverticle}></View>
-            </View>
-
             <View>
-            <Text style={styles.title}>비밀번호</Text>
-                <TextInput style={styles.input}
-                placeholder={'영문, 숫자, 특수문자 조합 6-15자 이내'}
-                placeholderTextColor='#9f9f9f'
-                secureTextEntry={true}
-                clearButtonMode="while-editing"
-                enablesReturnKeyAutomatically={true}
-                maxLength={15}
-                />
-            <View style={styles.Inputverticle}></View>
+              <Text style={styles.title}>비밀번호</Text>
+                  <TextInput style={styles.input}
+                  placeholder={'영문, 숫자, 특수문자 조합 6-15자 이내'}
+                  placeholderTextColor='#9f9f9f'
+                  secureTextEntry={true}
+                  clearButtonMode="while-editing"
+                  autoCapitalize="none"
+                  enablesReturnKeyAutomatically={true}
+                  maxLength={15}
+                  />
+              <View style={styles.Inputverticle}></View>
             </View>
-
             <View>
-            <Text style={styles.title}>비밀번호 확인</Text>
-                <TextInput style={styles.input}
-                placeholder={'영문, 숫자, 특수문자 조합 6-15자 이내'}
-                placeholderTextColor='#9f9f9f'
-                blurOnSubmit={true}
-                secureTextEntry={true}
-                clearButtonMode="while-editing"
-                enablesReturnKeyAutomatically={true}
-                maxLength={15}
-                />
-            <View style={styles.Inputverticle}></View>
+              <Text style={styles.title}>비밀번호 확인</Text>
+                  <TextInput style={styles.input}
+                  placeholder={'영문, 숫자, 특수문자 조합 6-15자 이내'}
+                  placeholderTextColor='#9f9f9f'
+                  blurOnSubmit={true}
+                  secureTextEntry={true}
+                  clearButtonMode="while-editing"
+                  autoCapitalize="none"
+                  enablesReturnKeyAutomatically={true}
+                  maxLength={15}
+                  />
+              <View style={styles.Inputverticle}></View>
             </View>
-
             <TouchableOpacity style={styles.signUpButton} onPress={()=>navigation.navigate("SignUpFinish")}>
                 <Text style={styles.signUpButtonName}>회원가입</Text>
             </TouchableOpacity>
-        
+          </View>
         </View>
-        </KeyboardAwareScrollView>
-        </View>
-    
+      </TouchableWithoutFeedback>
   );
 }
 
