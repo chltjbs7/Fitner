@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -179,7 +179,21 @@ function ChartTabs() {
   );
 }
 
-function MyPageScreen({navigation}) {
+const MyPageScreen = ({navigation}) => {
+  const createButtonAlert  = () =>
+    Alert.alert(
+      "로그아웃",
+      "로그아웃 하시겠습니까?",
+      [
+        {
+          text: "취소",
+          style: "cancel"
+        },
+        { text: "확인", onPress: ()=>navigation.navigate("LogIn")}
+      ],
+      { cancelable: false }
+    );
+
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
       <View style={{ flex: 0.55, backgroundColor: '#6c5ce7' }}>
@@ -209,7 +223,7 @@ function MyPageScreen({navigation}) {
       <View>
         <Text style={styles.mp_title}>고객지원</Text>
         <TouchableOpacity>
-          <Text style={styles.mp_text} onPress={()=>navigation.navigate("LogIn")}>로그아웃</Text>
+        <Text style={styles.mp_text} onPress={createButtonAlert}>로그아웃</Text>
         </TouchableOpacity>
         <TouchableOpacity>
           <Text style={styles.mp_text}>탈퇴하기</Text>
