@@ -39,6 +39,34 @@ const Week = ()=>{
             </View>
             {/* 동작 유사도 */}
             <Text style={styles.text_01}>운동한 영상 별 동작 유사도</Text>
+            <View style={{flexDirection: 'row'}}>
+              <TouchableOpacity style={{marginLeft: 16}}>
+                <View style={styles.screen} />
+                <Text style={styles.percent}>80%</Text>
+                <Text style={styles.title}>[Playing Pilates] 매트 전신운동 23 min★Full Body...</Text>
+                <Text style={styles.youtuber}>Playing Pilates</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={{marginLeft: 16}}>
+                <View style={styles.screen} />
+                <Text style={styles.percent}>95%</Text>
+                <Text style={styles.title}>Full body workout 50min | 살 찐 분들 들어오세요! 전...</Text>
+                <Text style={styles.youtuber}>힙으뜸</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <TouchableOpacity style={{marginLeft: 16, marginTop: 30}}>
+                <View style={styles.screen} />
+                <Text style={styles.percent}>80%</Text>
+                <Text style={styles.title}>살 쭉쭉 빠지는 유산소운동 홈트 (땀폭발) // 죽음의 타바...</Text>
+                <Text style={styles.youtuber}>Thankyou BUBU</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={{marginLeft: 16, marginTop: 30}}>
+                <View style={styles.screen} />
+                <Text style={styles.percent}>95%</Text>
+                <Text style={styles.title}>[체지방킬러:고독한 유산소 운동] 층간소음 걱정 1도 ...</Text>
+                <Text style={styles.youtuber}>힙으뜸</Text>
+              </TouchableOpacity>
+            </View>
         </View>
       </ScrollView>
     )
@@ -88,4 +116,41 @@ const styles = StyleSheet.create({
         lineHeight: 28,
         color: '#0a0a0a'
       },
+      screen: {
+        width: 182,
+        height: 102.375,
+        opacity: 0.9,
+        backgroundColor: '#aaaaaa',
+      },
+      percent: {
+        fontSize: 35,
+        fontWeight: "500",
+        fontStyle: "normal",
+        letterSpacing: 0,
+        color: "white",
+        position: 'absolute',
+        marginLeft: 100,
+        marginTop: 58,
+      },
+      title: {
+        width: 182,
+        height: 40,
+        fontSize: 14,
+        fontWeight: "normal",
+        fontStyle: "normal",
+        lineHeight: 18,
+        letterSpacing: -0.14,
+        textAlign: "left",
+      },
+      youtuber: {
+        width: 182,
+        height: 20,
+        fontSize: 12,
+        fontWeight: "300",
+        fontStyle: "normal",
+        lineHeight: 16,
+        letterSpacing: 0,
+        textAlign: "left",
+        color: "#8a8a8a"
+      }
 })

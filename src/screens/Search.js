@@ -32,6 +32,8 @@ const SearchScreen = ({navigation})=>{
                     style={{ width: "70%", height: 50, backgroundColor: "white", fontSize: 18, marginTop: -3 }}
                     placeholder={'검색어를 입력하세요.'}
                     placeholderTextColor={'#9f9f9f'}
+                    clearButtonMode="while-editing"
+                    enablesReturnKeyAutomatically={true}
                     underlineColorPhone='transpatren'
                     value={value}
                     onChangeText={(text)=>setValue(text)}

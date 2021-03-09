@@ -24,10 +24,6 @@ return (
 export default Chest
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: 'white',
-    },
     title: {
         fontSize: 20,
         fontStyle: "normal",

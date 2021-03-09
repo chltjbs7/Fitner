@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView, TextInput, FlatList, ActivityIndicator } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
-const Youtuber = ({navigation})=>{
+export default function Youtuber() {
+  const navigation = useNavigation()
+
   return (
     <ScrollView
       horizontal={true}
@@ -18,7 +20,7 @@ const Youtuber = ({navigation})=>{
             <FontAwesome name="angle-left" size={20} color="#9b90ee" style={styles.text} />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.btnYoutuber_01}>
+          <TouchableOpacity style={styles.btnYoutuber_01} onPress={()=>navigation.navigate("ytbchannel")}>
             <MaterialIcons name="account-circle" size={60} color="#6c5ce7" style={styles.profile}/>
             <Text style={styles.textYouYuber}>땅끄부부</Text>
           </TouchableOpacity>
@@ -41,8 +43,6 @@ const Youtuber = ({navigation})=>{
     </ScrollView>
   );
 }
-
-export default Youtuber
 
 const styles = StyleSheet.create({
   btnPlus: {

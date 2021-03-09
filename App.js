@@ -36,6 +36,7 @@ import Leg from './src/List/Leg';
 import Day from './src/Chart/Day';
 import Week from './src/Chart/Week';
 import Month from './src/Chart/Month';
+import Feedback from './src/Chart/Feedback';
 
 import YtbChannelScreen from './src/screens/YtbChannelScreen';
 import ViewedVideoScreen from './src/MyPage/ViewedVideoScreen';
@@ -284,10 +285,10 @@ function App() {
       <NavigationContainer>
         <Stack.Navigator headerMode="none">
           <Stack.Screen name="LogIn" component={LogInScreen} />
-          <Stack.Screen name="SignUp" component={Signup} />
-          <Stack.Screen name="SignUpFinish" component={SignupFinish} />
+          <Stack.Screen name="SignUp" component={Signup} options={() => ({ gestureEnabled: false })} />
+          <Stack.Screen name="SignUpFinish" component={SignupFinish} options={() => ({ gestureEnabled: false })} />
 
-          <Stack.Screen name="rootHome" component={RootHome} />
+          <Stack.Screen name="rootHome" component={RootHome} options={() => ({ gestureEnabled: false })} />
 
           <Stack.Screen name="ytbchannel" component={YtbChannelScreen} />
 
@@ -305,6 +306,7 @@ function App() {
           <Stack.Screen name="leg" component={Leg} />
 
           <Stack.Screen name="charttab" component={ChartTabs} />
+          <Stack.Screen name="Feedback" component={Feedback} />
 
           <Stack.Screen name="subscriedyoutuber" component={SubscriedYoutuber} />
           <Stack.Screen name="viewedVideoScreen" component={ViewedVideoScreen} />

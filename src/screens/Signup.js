@@ -23,7 +23,9 @@ export default function Signup({navigation}) {
                 <TextInput style={styles.input}
                 placeholder={'실명을 입력해주세요.'}
                 placeholderTextColor='#9f9f9f'
-                returnKeyType="done"
+                returnKeyType="next"
+                clearButtonMode="while-editing"
+                enablesReturnKeyAutomatically={true}
                 />
             <View style={styles.Inputverticle}></View>
             </View>
@@ -33,7 +35,9 @@ export default function Signup({navigation}) {
             <View style={styles.box}>
                 <TextInput style={styles.input}
                 placeholder={'사용하실 아이디를 입력해주세요.'}
-                placeholderTextColor='#9f9f9f'  
+                placeholderTextColor='#9f9f9f'
+                clearButtonMode="while-editing"
+                enablesReturnKeyAutomatically={true}
                 />
                 <TouchableOpacity style={styles.IdButton}>
                 <Text style={styles.IdButtonName}>중복확인</Text>
@@ -47,6 +51,10 @@ export default function Signup({navigation}) {
                 <TextInput style={styles.input}
                 placeholder={'영문, 숫자, 특수문자 조합 6-15자 이내'}
                 placeholderTextColor='#9f9f9f'
+                secureTextEntry={true}
+                clearButtonMode="while-editing"
+                enablesReturnKeyAutomatically={true}
+                maxLength={15}
                 />
             <View style={styles.Inputverticle}></View>
             </View>
@@ -57,6 +65,10 @@ export default function Signup({navigation}) {
                 placeholder={'영문, 숫자, 특수문자 조합 6-15자 이내'}
                 placeholderTextColor='#9f9f9f'
                 blurOnSubmit={true}
+                secureTextEntry={true}
+                clearButtonMode="while-editing"
+                enablesReturnKeyAutomatically={true}
+                maxLength={15}
                 />
             <View style={styles.Inputverticle}></View>
             </View>
