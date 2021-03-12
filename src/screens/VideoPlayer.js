@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
         lineHeight: 20,
         letterSpacing: 0,
         textAlign: "left",
-        color: '#8cd790',
+        color: '#8ad3c0',
         marginTop: 16,
         marginLeft: 16
     },
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     Button: {
         width: 217,
         height: 40,
-        backgroundColor: '#8cd790',
+        backgroundColor: '#8ad3c0',
         borderRadius: 30,
         marginTop: 14,
         marginBottom: 16,

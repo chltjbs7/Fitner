@@ -17,13 +17,13 @@ export default function Header() {
             </Text>
             <Image
             style={styles.logoImg}
-            source={require('../../assets/MorningJog.png')}
+            source={require('../../assets/Main_image.png')}
             />
             <TouchableOpacity style={styles.searchBox} onPress={()=>navigation.navigate("search")} activeOpacity={1} >
                 <Text style={styles.seachText}>검색어를 입력하세요.</Text>
             </TouchableOpacity>
             <View style={styles.seachIcon}>
-                <Ionicons name="md-search" size={24} color={"#525252"}
+                <Ionicons name="md-search" size={22} color={"#525252"}
                 style={{}} 
                 onPress={()=>navigation.navigate("search")}
                 />
@@ -50,10 +50,10 @@ const styles = StyleSheet.create({
           marginLeft: 12.5,
       },
       logoImg: {
-          width: 152,
-          height: 145,
-          marginTop: -47.8,
-          marginLeft: 265,
+          width: 148,
+          height: 148,
+          marginTop: -60,
+          marginLeft: 263,
           position: 'relative',
       },
       info: {
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
           flexDirection: "row",
           justifyContent: "space-around",
           margin: 5,
-          marginTop: '-15.5%',
-          marginLeft: '56%',
+          marginTop: '-13%',
+          marginLeft: '59%',
       },
 })

@@ -15,7 +15,7 @@ const data = {
   data: [
     [0], [0], [40], [0]
   ],
-  barColors: ["#8cd790"]
+  barColors: ["#8ad3c0"]
 };
 
 const Chart = () => {

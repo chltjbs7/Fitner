@@ -4,7 +4,7 @@
     "slug": "Fitner",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/Icon-1024.png",
+    "icon": "./assets/logo.png",
     "splash": {
       "image": "./assets/Splash_screen.png",
       "resizeMode": "contain",
