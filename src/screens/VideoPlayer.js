@@ -15,7 +15,12 @@ export default function VideoPlayer ({route}){
     const [CameraSpace,setCameraSpace] = useState(false);
     const [isPermission,setIsPermission]=useState('null');
     const {videoId,title,} = route.params
+    const [ScreenOrientation,setScreenOrientation]=useState('default')
 
+    async function changeScreenOrientation() {
+        await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_LEFT);
+      }
+      
     async function PermissionFlow(){
         const { status } =await Permissions.askAsync(Permissions.CAMERA);
         setIsPermission(status)
@@ -35,6 +40,10 @@ export default function VideoPlayer ({route}){
             );
         }
     }
+    function Set_for_CameraInput(){
+        setCameraSpace((CameraSpace)=>true)
+        setScreenOrientation((ScreenOrientation)=>'landscape_left')
+    }
     function Set_CameraSpace(){
         if (CameraSpace==false){    //cameraspace 설정 안되어 있을 경우
             return(
@@ -49,7 +58,7 @@ export default function VideoPlayer ({route}){
                             <MaterialIcons name="library-add" size={20} color="#8a8a8a"  style={{marginTop: 14, marginLeft: 51}} />
                             <Text style={styles.text}>재생목록에 추가</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.Button} onPress={() => setCameraSpace((CameraSpace)=>true)}>
+                        <TouchableOpacity style={styles.Button} onPress={() => Set_for_CameraInput()}>
                             <Text style={styles.ButtonName}>AI와 함께 운동하기</Text>
                         </TouchableOpacity>
                     </View>
@@ -115,11 +124,16 @@ export default function VideoPlayer ({route}){
         }else{  // cameraspace 설정 되어 있을 경우 (CameraSpace==True 조건부렌더링)
             PermissionFlow();
             return (
+                    //<CameraInput />
                     <CameraInput isPermission={isPermission} />
             );
         }
     }
-    return(
+
+
+
+    if(ScreenOrientation=='default'){
+        return(
         <View style={{
             flex:1,
             marginTop:Constant.statusBarHeight
@@ -129,15 +143,46 @@ export default function VideoPlayer ({route}){
             height:220
         }}>
         <WebView
-            javaScriptEnabled={true}
-            domStorageEnabled={true}
-            source={{uri:`https://www.youtube.com/embed/${videoId}`}}
-            />
+                useWebKit={true}
+                javaScriptEnabled={true}
+                domStorageEnabled={true}
+                allowsInlineMediaPlayback={true}
+                source={{uri:`https://www.youtube.com/embed/${videoId}?playsinline=1`}}
+                />
         </View>
         <Set_CameraSpace />
         </View>
-)
+        )
+    }
+    else{
+        changeScreenOrientation
+        return(
+            <View style={{
+                flex:7,
+                flexDirection:"row"
+                //marginTop:Constant.statusBarHeight
+            }}>
+            <View style={{
+                width:"70%",
+                height:"100%"
+            }}>
+            <WebView
+                useWebKit={true}
+                javaScriptEnabled={true}
+                domStorageEnabled={true}
+                allowsInlineMediaPlayback={true}
+                source={{uri:`https://www.youtube.com/embed/${videoId}?playsinline=1`}}
+                />
+            </View>
+            <Set_CameraSpace />
+            </View>
+            )
+    }
+    
 }
+
+    
+    
 
 const styles = StyleSheet.create({
     permissionTest:{

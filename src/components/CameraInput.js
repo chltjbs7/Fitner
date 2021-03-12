@@ -1,34 +1,30 @@
-import Constant from 'expo-constants'
+import Constants from 'expo-constants'
 import * as React from 'react';
-import { Dimensions,Text, View, StyleSheet, Alert,Linking,TouchableOpacity } from 'react-native';
+import { Dimensions,Text, View, StyleSheet, Alert,Linking,TouchableOpacity, ScrollView,Button } from 'react-native';
 import * as Permissions from 'expo-permissions';
 import { Camera } from 'expo-camera'
 import { useState,useEffect } from 'react';
+import { fetch, decodeJpeg } from '@tensorflow/tfjs-react-native';
+import * as tf from '@tensorflow/tfjs';
+import * as posenet from '@tensorflow-models/posenet'
+import * as ScreenOrientation from 'expo-screen-orientation';
+
 
 export default function CameraInput (props) {
     const [type, setType] = useState(Camera.Constants.Type.front);
+    async function changeScreenOrientation() {
+      await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_LEFT);
+    }
+    changeScreenOrientation()
     if (props.isPermission=='granted'){
         return(
             <View style={styles.container}>
-            <Camera style={styles.camera} type={type}>
-                <View style={styles.buttonContainer}>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => {
-                    setType(
-                        type === Camera.Constants.Type.back
-                        ? Camera.Constants.Type.front
-                        : Camera.Constants.Type.back
-                    );
-                    }}>
-                    <Text style={styles.text}> Flip </Text>
-                </TouchableOpacity>
-                </View>
-            </Camera>
+            <Camera style={styles.camera} type={type} />
             </View>
         );
     }
     return(
+        
         <View />
     )
 }
@@ -38,12 +34,14 @@ export default function CameraInput (props) {
 
 const styles = StyleSheet.create({
     container: {
-      //flex: 1,
+      flex: 3,
+      flexDirection:"row"
     },
     camera: {
-      //flex: 1,
-      width:Dimensions.get("screen").width,
-      height:Dimensions.get("screen").height-260
+      flex: 1,
+      width:"30%",
+      height:"100%",
+      //position:'absolute',
     },
     buttonContainer: {
       //flex: 1,
@@ -57,8 +55,10 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     text: {
+      textAlign:'center',
       fontSize: 18,
-      color: 'white',
+      color: 'black',
+      position: 'relative',
     },
   });
-  
+
