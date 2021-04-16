@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+
 import { useNavigation } from '@react-navigation/native';
 
 const Card = (props)=>{
@@ -10,6 +11,7 @@ const Card = (props)=>{
         onPress={()=>navigation.navigate("videoplayer", {videoId: props.videoId, title: props.title})}
         >
         <View style={{backgroundColor: "white", marginBottom: 10}}>
+
             <Image
             source={{uri: `https://i.ytimg.com/vi/${props.videoId}/hqdefault.jpg`}}
             style={styles.thumbnail}
@@ -26,6 +28,7 @@ const Card = (props)=>{
                         numberOfLines={2}
                     >{props.title}</Text>
                     <Text style={styles.channel}>{props.channel} · {props.time}</Text>
+
                 </View>
             </View>
         </View>

@@ -101,15 +101,6 @@ const VideoPlayer = ({route})=>{
     return (
         <View style={{ flex:1, marginTop:Constant.statusBarHeight }}>
             <View style={{ width:"100%", height: 233 }}>
-            <WebView
-                useWebKit={true}
-                javaScriptEnabled={true}
-                domStorageEnabled={true}
-                allowsInlineMediaPlayback={true}
-                source={{uri:`https://www.youtube.com/embed/${videoId}?playsinline=1`}}
-                />
-            </View>
-            <Set_CameraSpace />
         </View>
     )
 }
@@ -117,6 +108,7 @@ const VideoPlayer = ({route})=>{
 export default VideoPlayer
 
 const styles = StyleSheet.create({
+
     tag: {
         width: 304,
         height: 19,
@@ -127,6 +119,7 @@ const styles = StyleSheet.create({
         letterSpacing: 0,
         textAlign: "left",
         color: '#8ad3c0',
+
         marginTop: 16,
         marginLeft: 16
     },

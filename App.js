@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -162,6 +163,7 @@ function monthScreen() {
 function ChartTabs() {
   return (
     <Tab.Navigator
+
       initialRouteName="Day"
       tabBarOptions={{
         activeTintColor: '#9b90ee',
@@ -173,12 +175,15 @@ function ChartTabs() {
         indicatorStyle: { backgroundColor: '#9b90ee' },
       }}
     >
+
       <Tab.Screen name="Day" component={dayScreen} options={{ tabBarLabel: '일' }} />
       <Tab.Screen name="Week" component={weekScreen} options={{ tabBarLabel: '주' }} />
       <Tab.Screen name="Month" component={monthScreen} options={{ tabBarLabel: '월' }} />
+
     </Tab.Navigator>
   );
 }
+
 
 const MyPageScreen = ({navigation}) => {
   const createButtonAlert  = () =>
@@ -194,6 +199,7 @@ const MyPageScreen = ({navigation}) => {
       ],
       { cancelable: false }
     );
+
 
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -224,7 +230,9 @@ const MyPageScreen = ({navigation}) => {
       <View>
         <Text style={styles.mp_title}>고객지원</Text>
         <TouchableOpacity>
+
         <Text style={styles.mp_text} onPress={createButtonAlert}>로그아웃</Text>
+
         </TouchableOpacity>
         <TouchableOpacity>
           <Text style={styles.mp_text}>탈퇴하기</Text>
@@ -285,10 +293,12 @@ function App() {
       <NavigationContainer>
         <Stack.Navigator headerMode="none">
           <Stack.Screen name="LogIn" component={LogInScreen} />
+
           <Stack.Screen name="SignUp" component={Signup} options={() => ({ gestureEnabled: false })} />
           <Stack.Screen name="SignUpFinish" component={SignupFinish} options={() => ({ gestureEnabled: false })} />
 
           <Stack.Screen name="rootHome" component={RootHome} options={() => ({ gestureEnabled: false })} />
+
 
           <Stack.Screen name="ytbchannel" component={YtbChannelScreen} />
 
@@ -307,6 +317,7 @@ function App() {
 
           <Stack.Screen name="charttab" component={ChartTabs} />
           <Stack.Screen name="Feedback" component={Feedback} />
+
 
           <Stack.Screen name="subscriedyoutuber" component={SubscriedYoutuber} />
           <Stack.Screen name="viewedVideoScreen" component={ViewedVideoScreen} />

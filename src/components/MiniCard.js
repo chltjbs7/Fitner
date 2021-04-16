@@ -32,6 +32,7 @@ const MiniCard = (props)=> {
                     <Text style={styles.channel}>{props.channel} · {props.time}</Text>
                 </View>
             </View>
+
         </View>
         </TouchableOpacity>
     )
@@ -61,3 +62,4 @@ const styles = StyleSheet.create({
         marginLeft: 8
     },
 })
+

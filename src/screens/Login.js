@@ -59,19 +59,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     alignItems: 'center',
     width: 285,
-  },
-  input: {
-    width: 285,
-    height: 53,
-    borderRadius: 30,
-    fontSize: 18,
-    paddingLeft: 25,
-    paddingRight: 25,
-    backgroundColor: 'white',
-    borderStyle: "solid",
-    borderWidth: 2,
-    borderColor: '#e8e8e8',
-    color: '#6c5ce7',
-    
+    paddingRight: 25,    
   },
 });

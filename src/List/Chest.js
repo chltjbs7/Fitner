@@ -29,5 +29,6 @@ const styles = StyleSheet.create({
         fontStyle: "normal",
         marginTop: 55,
         marginLeft: 133,
+
     },
   });

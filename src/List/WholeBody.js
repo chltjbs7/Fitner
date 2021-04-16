@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const WholeBody = (props)=>{
     const navigation = useNavigation();
+
     return (
         <View style={{
             flex: 1,
@@ -64,6 +65,5 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontStyle: "normal",
         marginTop: 55,
-        marginLeft: 133,
-    },
+        marginLeft: 133,   },
   });

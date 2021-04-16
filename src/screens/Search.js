@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, TextInput, FlatList, ActivityIndicator } from 'react-native';
+
 import { FontAwesome, AntDesign } from '@expo/vector-icons';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -17,13 +18,7 @@ const SearchScreen = ({navigation})=>{
         const fetchData = () => {
             setLoading(true)
             fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%${value}&videoLicense=creativeCommon&type=video&key=AIzaSyDJvescleFZrha4Zq2hoia8qoTzo-JgzE0`)
-            .then(res=>res.json())
-            .then(data=>{
-                setLoading(false)
-                dispatch({type:"add",payload:data.items})
-                // setMiniCard(data.items)
-            })
-        }
+
     return (
             <View style={{ flex: 1, marginTop: Constant.systemVersion, backgroundColor: "white" }}>
                 <View style={{ marginTop: 44, padding: 5, flexDirection: "row",  justifyContent: "space-around", backgroundColor: 'white' }}>

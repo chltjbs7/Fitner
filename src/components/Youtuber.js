@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -6,6 +7,7 @@ import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
 export default function Youtuber() {
   const navigation = useNavigation()
+
 
   return (
     <ScrollView
@@ -118,3 +120,4 @@ const styles = StyleSheet.create({
     marginLeft: 13,
   },
 })
+
