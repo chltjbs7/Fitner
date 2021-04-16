@@ -1,16 +1,14 @@
-import * as React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  ScrollView,
- } from 'react-native';
 
-import { MaterialIcons, } from '@expo/vector-icons';
+import React, {useState} from 'react';
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
 export default function Youtuber() {
+  const navigation = useNavigation()
+
+
   return (
     <ScrollView
       horizontal={true}
@@ -21,20 +19,24 @@ export default function Youtuber() {
     >
       <View>
           <TouchableOpacity style={styles.btnPlus}>
-            <Text style={styles.text}>◀</Text>
+            <FontAwesome name="angle-left" size={20} color="#9b90ee" style={styles.text} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.btnYoutuber_01}>
-          <MaterialIcons name="account-circle" size={60} color="#6c5ce7" style={styles.profile}/>
+
+          <TouchableOpacity style={styles.btnYoutuber_01} onPress={()=>navigation.navigate("ytbchannel")}>
+            <MaterialIcons name="account-circle" size={60} color="#6c5ce7" style={styles.profile}/>
             <Text style={styles.textYouYuber}>땅끄부부</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.btnYoutuber_02}>
             <MaterialIcons name="account-circle" size={60} color="#6c5ce7" style={styles.profile}/>
             <Text style={styles.textYouYuber}>힙으뜸</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.btnYoutuber_03}>
             <MaterialIcons name="account-circle" size={60} color="#6c5ce7" style={styles.profile}/>
             <Text style={styles.textYouYuber}>발레테라핏</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.btnYoutuber_04}>
             <MaterialIcons name="account-circle" size={60} color="#6c5ce7" style={styles.profile}/>
             <Text style={styles.textYouYuber}>피지컬 갤러리</Text>
@@ -55,8 +57,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontSize: 20,
-    color: '#9b90ee',
     textAlign: 'center',
     fontWeight: "bold",
   },
@@ -119,4 +119,5 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginLeft: 13,
   },
-});
+})
+

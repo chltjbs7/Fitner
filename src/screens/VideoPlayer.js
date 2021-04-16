@@ -1,205 +1,114 @@
-import React, { Component } from 'react';
-import { Dimensions, StyleSheet, Text, View, TouchableOpacity, Button, Alert,Linking,ScrollView } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import Constant from 'expo-constants'
 import { WebView } from 'react-native-webview';
-import { MaterialIcons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import {navigation} from '@react-navigation/native'
 import { useState } from 'react';
+
+import { MaterialIcons } from '@expo/vector-icons';
+
 import CameraInput from '../components/CameraInput';
-import * as Permissions from 'expo-permissions';
-import {RNCamera} from 'react-native-camera';
-import { Camera } from 'expo-camera';
 
-export default function VideoPlayer ({route}){
+const VideoPlayer = ({route})=>{
     const [CameraSpace,setCameraSpace] = useState(false);
-    const [isPermission,setIsPermission]=useState('null');
     const {videoId,title,} = route.params
-    const [ScreenOrientation,setScreenOrientation]=useState('default')
-
-    async function changeScreenOrientation() {
-        await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_LEFT);
-      }
-      
-    async function PermissionFlow(){
-        const { status } =await Permissions.askAsync(Permissions.CAMERA);
-        setIsPermission(status)
-        if (status !== 'granted') {
-            Alert.alert(
-                "권한 거부",
-                "원활한 스마트 운동을 위해서 카메라 권한을 설정해주세요.",
-                [
-                {
-                    text: "취소",
-                    onPress: () => console.log("Cancel Pressed"),
-                    style: "cancel"
-                },
-                { text: "권한 설정", onPress: () => Linking.openURL('app-settings:') }
-                ],
-                { cancelable: false }
-            );
-        }
-    }
-    function Set_for_CameraInput(){
-        setCameraSpace((CameraSpace)=>true)
-        setScreenOrientation((ScreenOrientation)=>'landscape_left')
-    }
     function Set_CameraSpace(){
-        if (CameraSpace==false){    //cameraspace 설정 안되어 있을 경우
+        if (CameraSpace==false){
             return(
-                <View style={{backgroundColor: "white", flex:1,}}>
-                    <Text style={styles.tag}>#cardioworkout #층간소음없는유산소 #전신유산소운동</Text>
-                    <Text style={styles.VideoName}
-                    ellipsizeMode="tail"
-                    >{title}</Text>
-                    <Text style={styles.info}>조회수 1.5만회 · 1개월 전</Text>
-                    <View style={{flexDirection: "row",}}>
-                        <TouchableOpacity>
-                            <MaterialIcons name="library-add" size={20} color="#8a8a8a"  style={{marginTop: 14, marginLeft: 51}} />
-                            <Text style={styles.text}>재생목록에 추가</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.Button} onPress={() => Set_for_CameraInput()}>
-                            <Text style={styles.ButtonName}>AI와 함께 운동하기</Text>
-                        </TouchableOpacity>
-                    </View>
-    
-                    <View style={{borderBottomWidth: 1, borderColor: '#e8e8e8', marginTop: 7, }} />
-    
-                    <View style={{flexDirection: "row", marginTop: 10, marginLeft: 16}}>
-                        <MaterialIcons name="account-circle" size={40} color="#6c5ce7" />
-                        <View style={{flexDirection: "column"}}>
-                            <Text style={styles.ytbName}>유튜버 이름</Text>
-                            <Text style={styles.ytbNum}>구독자 몇 명</Text>
-                        </View>
-    
-                        <TouchableOpacity>
-                            <Text style={styles.subsBtn}>구독</Text>
-                        </TouchableOpacity>
-                    </View>
-    
-                    <View style={{borderBottomWidth: 1, borderColor: '#e8e8e8', marginTop: 10, }} />
-    
-                    <View>
-                        <Text style={styles.title}>유사도 랭킹</Text>
-                        <ScrollView>
-                            <View style={styles.rankingBox}>
-                                <View style={styles.num_1}>
-                                    <Text style={{fontSize: 20, color: "#ffffff", textAlign: "center", marginTop: 2}}>1</Text>
-                                </View>
-                                <Text style={styles.id}>abc123</Text>
-                                <Text style={styles.percent}>99%</Text>
-                            </View>
-                            <View style={styles.rankingBox}>
-                                <View style={styles.num_2}>
-                                    <Text style={{fontSize: 20, color: "#ffffff", textAlign: "center", marginTop: 2}}>2</Text>
-                                </View>
-                                <Text style={styles.id}>abc123</Text>
-                                <Text style={styles.percent}>97%</Text>
-                            </View>
-                            <View style={styles.rankingBox}>
-                                <View style={styles.num_3}>
-                                    <Text style={{fontSize: 20, color: "#ffffff", textAlign: "center", marginTop: 2}}>3</Text>
-                                </View>
-                                <Text style={styles.id}>abc123</Text>
-                                <Text style={styles.percent}>95%</Text>
-                            </View>
-                            <View style={styles.rankingBox}>
-                                <View style={styles.num_4}>
-                                    <Text style={{fontSize: 20, color: "black", textAlign: "center", marginTop: 2}}>4</Text>
-                                </View>
-                                <Text style={styles.id}>abc123</Text>
-                                <Text style={styles.percent}>89%</Text>
-                            </View>
-                            <View style={styles.rankingBox}>
-                                <View style={styles.num_4}>
-                                    <Text style={{fontSize: 20, color: "black", textAlign: "center", marginTop: 2}}>5</Text>
-                                </View>
-                                <Text style={styles.id}>abc123</Text>
-                                <Text style={styles.percent}>85%</Text>
-                            </View>
-                        </ScrollView>
-                    </View>
+            <View style={{backgroundColor: "white", flex:1,}}>
+                <Text style={styles.tag}>#cardioworkout #층간소음없는유산소 #전신유산소운동</Text>
+                <Text style={styles.VideoName}
+                ellipsizeMode="tail"
+                >{title}</Text>
+                <Text style={styles.info}>조회수 1.5만회 · 1개월 전</Text>
+                <View style={{flexDirection: "row",}}>
+                    <TouchableOpacity>
+                        <MaterialIcons name="library-add" size={20} color="#8a8a8a"  style={{marginTop: 14, marginLeft: 51}} />
+                        <Text style={styles.text}>재생목록에 추가</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.Button} onPress={() => setCameraSpace((CameraSpace)=>true)}>
+                        <Text style={styles.ButtonName}>AI와 함께 운동하기</Text>
+                    </TouchableOpacity>
                 </View>
-                )    
-        }else{  // cameraspace 설정 되어 있을 경우 (CameraSpace==True 조건부렌더링)
-            PermissionFlow();
-            return (
-                    //<CameraInput />
-                    <CameraInput isPermission={isPermission} />
-            );
-        }
-    }
 
+                <View style={{borderBottomWidth: 1, borderColor: '#e8e8e8', marginTop: 7, }} />
 
+                <View style={{flexDirection: "row", marginTop: 10, marginLeft: 16}}>
+                    <MaterialIcons name="account-circle" size={40} color="#6c5ce7" />
+                    <View style={{flexDirection: "column"}}>
+                        <Text style={styles.ytbName}>유튜버 이름</Text>
+                        <Text style={styles.ytbNum}>구독자 몇 명</Text>
+                    </View>
 
-    if(ScreenOrientation=='default'){
-        return(
-        <View style={{
-            flex:1,
-            marginTop:Constant.statusBarHeight
-        }}>
-        <View style={{
-            width:"100%",
-            height:220
-        }}>
-        <WebView
-                useWebKit={true}
-                javaScriptEnabled={true}
-                domStorageEnabled={true}
-                allowsInlineMediaPlayback={true}
-                source={{uri:`https://www.youtube.com/embed/${videoId}?playsinline=1`}}
-                />
-        </View>
-        <Set_CameraSpace />
-        </View>
-        )
-    }
-    else{
-        changeScreenOrientation
-        return(
-            <View style={{
-                flex:7,
-                flexDirection:"row"
-                //marginTop:Constant.statusBarHeight
-            }}>
-            <View style={{
-                width:"70%",
-                height:"100%"
-            }}>
-            <WebView
-                useWebKit={true}
-                javaScriptEnabled={true}
-                domStorageEnabled={true}
-                allowsInlineMediaPlayback={true}
-                source={{uri:`https://www.youtube.com/embed/${videoId}?playsinline=1`}}
-                />
-            </View>
-            <Set_CameraSpace />
+                    <TouchableOpacity>
+                        <Text style={styles.subsBtn}>구독</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={{borderBottomWidth: 1, borderColor: '#e8e8e8', marginTop: 10, }} />
+
+                <View>
+                    <Text style={styles.title}>유사도 랭킹</Text>
+                    <ScrollView>
+                        <View style={styles.rankingBox}>
+                            <View style={styles.num_1}>
+                                <Text style={{fontSize: 20, color: "#ffffff", textAlign: "center", marginTop: 2}}>1</Text>
+                            </View>
+                            <Text style={styles.id}>abc123</Text>
+                            <Text style={styles.percent}>99%</Text>
+                        </View>
+                        <View style={styles.rankingBox}>
+                            <View style={styles.num_2}>
+                                <Text style={{fontSize: 20, color: "#ffffff", textAlign: "center", marginTop: 2}}>2</Text>
+                            </View>
+                            <Text style={styles.id}>abc123</Text>
+                            <Text style={styles.percent}>97%</Text>
+                        </View>
+                        <View style={styles.rankingBox}>
+                            <View style={styles.num_3}>
+                                <Text style={{fontSize: 20, color: "#ffffff", textAlign: "center", marginTop: 2}}>3</Text>
+                            </View>
+                            <Text style={styles.id}>abc123</Text>
+                            <Text style={styles.percent}>95%</Text>
+                        </View>
+                        <View style={styles.rankingBox}>
+                            <View style={styles.num_4}>
+                                <Text style={{fontSize: 20, color: "black", textAlign: "center", marginTop: 2}}>4</Text>
+                            </View>
+                            <Text style={styles.id}>abc123</Text>
+                            <Text style={styles.percent}>89%</Text>
+                        </View>
+                        <View style={styles.rankingBox}>
+                            <View style={styles.num_4}>
+                                <Text style={{fontSize: 20, color: "black", textAlign: "center", marginTop: 2}}>5</Text>
+                            </View>
+                            <Text style={styles.id}>abc123</Text>
+                            <Text style={styles.percent}>85%</Text>
+                        </View>
+                    </ScrollView>
+                </View>
             </View>
             )
+        }else{
+            //카메라
+            return(
+                <View>
+                    <Text>Camera_space</Text>
+                    <CameraInput />
+                </View>
+            )
+        }
     }
-    
+    return (
+        <View style={{ flex:1, marginTop:Constant.statusBarHeight }}>
+            <View style={{ width:"100%", height: 233 }}>
+        </View>
+    )
 }
 
-    
-    
+export default VideoPlayer
 
 const styles = StyleSheet.create({
-    permissionTest:{
-        justifyContent: 'center',
-        backgroundColor: '#ecf0f1',
-        padding: 8,
-    },
-    paragraph: {
-        margin: 24,
-        fontSize: 18,
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
-    container:{
-        flexDirection:'row',
-        justifyContent: 'center'
-    },
+
     tag: {
         width: 304,
         height: 19,
@@ -209,7 +118,8 @@ const styles = StyleSheet.create({
         lineHeight: 20,
         letterSpacing: 0,
         textAlign: "left",
-        color: '#8cd790',
+        color: '#8ad3c0',
+
         marginTop: 16,
         marginLeft: 16
     },
@@ -236,7 +146,7 @@ const styles = StyleSheet.create({
     Button: {
         width: 217,
         height: 40,
-        backgroundColor: '#8cd790',
+        backgroundColor: '#8ad3c0',
         borderRadius: 30,
         marginTop: 14,
         marginBottom: 16,
@@ -364,5 +274,4 @@ const styles = StyleSheet.create({
         marginTop: 18,
         marginLeft: 196,
     },
-}
-)
+})

@@ -1,9 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+
 import { useSelector } from 'react-redux';
 
 import Card from '../components/Card';
 
+//%ED%99%88%ED%8A%B8%EB%A0%88%EC%9D%B4%EB%8B%9D = "홈트레이닝"
 export default function HomeScreen() {
   const cardData = useSelector(state=>{
     return state

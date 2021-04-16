@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -33,9 +34,10 @@ import Hip from './src/List/Hip';
 import Thigh from './src/List/Thigh';
 import Leg from './src/List/Leg';
 
-import Day from './src/components/Day';
-import Week from './src/components/Week';
-import Month from './src/components/Month';
+import Day from './src/Chart/Day';
+import Week from './src/Chart/Week';
+import Month from './src/Chart/Month';
+import Feedback from './src/Chart/Feedback';
 
 import YtbChannelScreen from './src/screens/YtbChannelScreen';
 import ViewedVideoScreen from './src/MyPage/ViewedVideoScreen';
@@ -50,9 +52,7 @@ const LogInScreen = ({navigation})=>{
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: "rgba(232, 232, 232, 0.3)" }}>
       <Login />
-      <TouchableOpacity style={styles.btnLogin} underlayColor="#6c5ce7"
-      onPress={() => navigation.navigate('rootHome')}
-      >
+      <TouchableOpacity style={styles.btnLogin} underlayColor="#6c5ce7" onPress={() => navigation.navigate('rootHome')} >
         <Text style={styles.text}>Log in</Text>
       </TouchableOpacity>
       <View style={styles.textContainer}>
@@ -132,8 +132,8 @@ function ListScreen({navigation}) {
 
 function ChartScreen() {
   return (
-    <View style={{ flex: 0.4, backgroundColor: '#ffffff' }}>
-      <View style={{ flex: 1, backgroundColor: '#6c5ce7', justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
+      <View style={{ flex: 0.25 , backgroundColor: '#6c5ce7', justifyContent: 'center', alignItems: 'center' }}>
           <Text style={{ fontSize: 16, fontWeight: "600", fontStyle: "normal", color: 'white', marginTop: 73 }}>Fitner에서의 꾸준한 기록</Text>
           <Text style={{ fontWeight: "600", fontSize: 22, color: 'white', marginTop: 10, marginBottom: 10 }}>나의 운동데이터</Text>
       </View>
@@ -163,6 +163,8 @@ function monthScreen() {
 function ChartTabs() {
   return (
     <Tab.Navigator
+
+      initialRouteName="Day"
       tabBarOptions={{
         activeTintColor: '#9b90ee',
         inactiveTintColor: '#aaaaaa',
@@ -173,14 +175,32 @@ function ChartTabs() {
         indicatorStyle: { backgroundColor: '#9b90ee' },
       }}
     >
-      <Tab.Screen name="일" component={dayScreen} options={{ tabBarLabel: '일' }} />
-      <Tab.Screen name="주" component={weekScreen} options={{ tabBarLabel: '주' }} />
-      <Tab.Screen name="월" component={monthScreen} options={{ tabBarLabel: '월' }} />
+
+      <Tab.Screen name="Day" component={dayScreen} options={{ tabBarLabel: '일' }} />
+      <Tab.Screen name="Week" component={weekScreen} options={{ tabBarLabel: '주' }} />
+      <Tab.Screen name="Month" component={monthScreen} options={{ tabBarLabel: '월' }} />
+
     </Tab.Navigator>
   );
 }
 
-function MyPageScreen({navigation}) {
+
+const MyPageScreen = ({navigation}) => {
+  const createButtonAlert  = () =>
+    Alert.alert(
+      "로그아웃",
+      "로그아웃 하시겠습니까?",
+      [
+        {
+          text: "취소",
+          style: "cancel"
+        },
+        { text: "확인", onPress: ()=>navigation.navigate("LogIn")}
+      ],
+      { cancelable: false }
+    );
+
+
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
       <View style={{ flex: 0.55, backgroundColor: '#6c5ce7' }}>
@@ -210,7 +230,9 @@ function MyPageScreen({navigation}) {
       <View>
         <Text style={styles.mp_title}>고객지원</Text>
         <TouchableOpacity>
-          <Text style={styles.mp_text} onPress={()=>navigation.navigate("LogIn")}>로그아웃</Text>
+
+        <Text style={styles.mp_text} onPress={createButtonAlert}>로그아웃</Text>
+
         </TouchableOpacity>
         <TouchableOpacity>
           <Text style={styles.mp_text}>탈퇴하기</Text>
@@ -271,10 +293,12 @@ function App() {
       <NavigationContainer>
         <Stack.Navigator headerMode="none">
           <Stack.Screen name="LogIn" component={LogInScreen} />
-          <Stack.Screen name="SignUp" component={Signup} />
-          <Stack.Screen name="SignUpFinish" component={SignupFinish} />
 
-          <Stack.Screen name="rootHome" component={RootHome} />
+          <Stack.Screen name="SignUp" component={Signup} options={() => ({ gestureEnabled: false })} />
+          <Stack.Screen name="SignUpFinish" component={SignupFinish} options={() => ({ gestureEnabled: false })} />
+
+          <Stack.Screen name="rootHome" component={RootHome} options={() => ({ gestureEnabled: false })} />
+
 
           <Stack.Screen name="ytbchannel" component={YtbChannelScreen} />
 
@@ -292,6 +316,8 @@ function App() {
           <Stack.Screen name="leg" component={Leg} />
 
           <Stack.Screen name="charttab" component={ChartTabs} />
+          <Stack.Screen name="Feedback" component={Feedback} />
+
 
           <Stack.Screen name="subscriedyoutuber" component={SubscriedYoutuber} />
           <Stack.Screen name="viewedVideoScreen" component={ViewedVideoScreen} />

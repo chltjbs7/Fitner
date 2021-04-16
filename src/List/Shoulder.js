@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontStyle: "normal",
         marginTop: 55,
-        marginLeft: 140,
+        marginLeft: 133,
+
     },
   });
